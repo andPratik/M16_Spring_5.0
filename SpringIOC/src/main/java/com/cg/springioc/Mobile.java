@@ -5,11 +5,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Mobile
 {
-	@SuppressWarnings("resource")
+	private static ApplicationContext c;
+
 	public static void main(String[] args) {
-		ApplicationContext c = new ClassPathXmlApplicationContext("beans.xml");
-		System.out.println("program is exuted");
-		Sim s = c.getBean("sim",Sim.class);
+		c = new ClassPathXmlApplicationContext("beans.xml");
+		Sim s =(Sim)c.getBean("sim1");
 		s.calling();
 		s.data();
 		}
